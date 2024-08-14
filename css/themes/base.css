@@ -1,0 +1,41 @@
+.app {
+    --color-bg: #D6D84F;
+    --color-bg-secondary: #E4E69F;
+    --color-text: #010203;
+    --color-text-negative: #FEFDFC;
+    --color-text-gray: #333333;
+    --color-text-good: #214E34;
+    --color-text-bad: #69140E;
+    --color-warning: #DB504A;
+    --color-detection-progressbar: #A0A0A0;
+    --color-detection-current: #90323D;
+    --color-detection-growth: #A0525D;
+    --color-tab-hover: #FEFDFC;
+    --color-tab-not-selected: #B4B67B;
+    --color-borders: #010203;
+    --color-dice-holder-empty: #E4E6AF;
+    --color-dice-holder-locked: #B4B67B;
+    --color-button-hover: #FEFDFC;
+    --color-button-not-selected: #C8C98F;
+    --color-button-disabled: #A0A0A0;
+    --color-button-shadow: #00000080;
+    --color-reverse-shadow: #FFFFFF80;
+    --color-bg-dark: #C8CA4F;
+    --color-bg-gray: #C8CA9F;
+    --color-progressbar: #BBBBBB;
+    --color-progressbar-current: #4380B9;
+    --color-progressbar-growth: #39A0ED;
+    --color-scientist-bright: #7CCAEE;
+    --color-upgrade-not-selected: #E2E492;
+    --color-upgrade-complete: #80CFA9;
+
+    --color-class-peasant: #FEFDFC;
+    --color-class-laborer: #3BB85A;
+    --color-class-scientist: #3FA7D6;
+    --color-class-soldier: #A8374A;
+    --color-class-specialist: #2CA5A5;
+    --color-class-priest: #CFB92E;
+
+    --dice-size: 4em;
+    --repeatable-upgrade-width: 10em;
+}

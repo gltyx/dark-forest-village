@@ -1,0 +1,64 @@
+.tab-contents.research > .desc {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.tab-contents.research .research-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.tab-contents.research .research-cards .research-card-slot {
+    background-color: var(--color-dice-holder-empty);
+    border-radius: 0.5em;
+    border: 0.1em dashed var(--color-borders);
+    display: grid;
+    grid-template-rows: 2em 5em 2em;
+}
+
+.tab-contents.research .research-cards .research-card-slot.available {
+    background-color: var(--color-class-scientist);
+    border: 0;
+    box-shadow: 0.25em 0.25em var(--color-button-shadow);
+}
+
+.tab-contents.research .research-cards .research-card-slot.available.disabled {
+    background-color: var(--color-button-disabled);
+}
+
+.tab-contents.research .research-cards .research-card-slot.available:not(.disabled):hover {
+    background-color: var(--color-scientist-bright);
+    cursor: pointer;
+}
+
+.tab-contents.research .research-cards .research-card-slot:not(.available) > * {
+    display: none;
+}
+
+.tab-contents.research .research-cards .research-card-slot .name {
+    font-size: 1.25em;
+    text-align: center;
+    align-self: center;
+    justify-self: stretch;
+}
+
+.tab-contents.research .research-cards .research-card-slot .desc {
+    background-color: var(--color-reverse-shadow);
+    font-size: 0.8em;
+    padding: 0.5em;
+}
+
+.tab-contents.research .research-cards .research-card-slot .cost {
+    font-size: 1.25em;
+    text-align: center;
+    align-self: center;
+    justify-self: stretch;
+}
+
+.tab-contents.research .research-cards .research-card-slot .cost-value {
+    font-weight: bold;
+}
+
+

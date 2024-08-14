@@ -1,0 +1,38 @@
+.app.theme-random {
+    --color-bg: var(--random-color-0);
+    --color-bg-secondary: var(--random-color-1);
+    --color-text: var(--random-color-2);
+    --color-text-negative: var(--random-color-3);
+    --color-text-gray: var(--random-color-4);
+    --color-text-good: var(--random-color-5);
+    --color-text-bad: var(--random-color-6);
+    --color-warning: var(--random-color-7);
+    --color-detection-progressbar: var(--random-color-8);
+    --color-detection-current: var(--random-color-9);
+    --color-detection-growth: var(--random-color-10);
+    --color-tab-hover: var(--random-color-11);
+    --color-tab-not-selected: var(--random-color-12);
+    --color-borders: var(--random-color-13);
+    --color-dice-holder-empty: var(--random-color-14);
+    --color-dice-holder-locked: var(--random-color-15);
+    --color-button-hover: var(--random-color-16);
+    --color-button-not-selected: var(--random-color-17);
+    --color-button-disabled: var(--random-color-18);
+    --color-button-shadow: var(--random-transparent-color-0);
+    --color-reverse-shadow: var(--random-transparent-color-1);
+    --color-bg-dark: var(--random-color-19);
+    --color-bg-gray: var(--random-color-20);
+    --color-progressbar: var(--random-color-21);
+    --color-progressbar-current: var(--random-color-22);
+    --color-progressbar-growth: var(--random-color-23);
+    --color-scientist-bright: var(--random-color-24);
+    --color-upgrade-not-selected: var(--random-color-25);
+    --color-upgrade-complete: var(--random-color-26);
+
+    --color-class-peasant: var(--random-color-40);
+    --color-class-laborer: var(--random-color-41);
+    --color-class-scientist: var(--random-color-42);
+    --color-class-soldier: var(--random-color-43);
+    --color-class-specialist: var(--random-color-44);
+    --color-class-priest: var(--random-color-45);
+}

@@ -1,0 +1,60 @@
+.footer {
+    background-color: var(--color-bg-secondary);
+    padding: 1em;
+    border-radius: 1em;
+    margin-top: 1em;
+    display: flex;
+    gap: 0.5em;
+}
+
+.footer .dice-tray {
+    display: grid;
+    grid-template-rows: repeat(3, var(--dice-size));
+    grid-template-columns: repeat(12, var(--dice-size));
+    gap: 0.25em;
+    width: auto;
+}
+
+.footer .button {
+    flex-grow: 100;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: calc(4 * var(--dice-size));
+}
+
+.footer .button .title {
+    font-size: 2em;
+    text-align: center;
+}
+
+.footer .button .keybind {
+    text-align: center;
+}
+
+.footer .dice-holder.buyable {
+    background-color: var(--color-button-not-selected);
+    box-shadow: 0.15em 0.15em var(--color-button-shadow);
+    border: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.footer .dice-holder.buyable:not(.disabled):hover {
+    cursor: pointer;
+    background-color: var(--color-button-hover);
+}
+
+.footer .dice-holder.buyable.disabled {
+    background-color: var(--color-button-disabled);
+}
+
+.footer .button.newyear:not(.disabled) {
+    background: conic-gradient(var(--color-button-not-selected) calc(360deg * var(--fill-ratio)), var(--color-button-disabled) calc(360deg * var(--fill-ratio)));
+}
+
+.footer .button.newyear:hover {
+    cursor: auto;
+}

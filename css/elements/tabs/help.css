@@ -1,0 +1,62 @@
+.tab-contents.help {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-items: stretch;
+    align-items: stretch;
+    height: 100%;
+}
+
+.tab-contents.help .help-tabs {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0.5em 0 0 0.5em;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: var(--color-bg-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.tab-contents.help .help-tabs-contents {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    border-radius: 0 0.5em 0.5em 0;
+    background-color: var(--color-bg-gray);
+}
+
+.tab-contents.help .help-tabs-contents .help-tab-contents {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    right: 0.5em;
+}
+
+.tab-contents.help .help-tabs-contents .help-tab-contents:not(.selected) {
+    display: none;
+}
+
+.tab-contents.help .help-tabs-contents .help-tab-contents * {
+    user-select: text;
+}
+
+.tab-contents.help .help-tabs-contents .help-tab-contents > * {
+    padding-bottom: 0.5em;
+}
+
+.tab-contents.help .help-tabs .help-tab {
+    border-radius: 0.5em 0 0 0.5em;
+    background-color: var(--color-tab-not-selected);
+    padding: 0.25em;
+}
+
+.tab-contents.help .help-tabs .help-tab.selected {
+    background-color: var(--color-bg-gray);
+}
+
+.tab-contents.help .help-tabs .help-tab:not(.selected):hover {
+    cursor: pointer;
+    background-color: var(--color-tab-hover);
+}

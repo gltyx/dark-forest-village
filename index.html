@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dark Forest Village</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <script src="js/constants.js?v=2"></script>
+        <script src="js/helpers.js?v=2"></script>
+        <script src="js/saveload.js?v=2"></script>
+
+        <script src="js/index.js?v=2"></script>
+
+        <script src="js/data/resources.js?v=2"></script>
+        <script src="js/data/citizen_classes.js?v=2"></script>
+        <script src="js/data/population_slot_cost.js?v=2"></script>
+        <script src="js/data/events.js?v=2"></script>
+        <script src="js/data/enemy_names.js?v=2"></script>
+        <script src="js/data/buildings.js?v=2"></script>
+        <script src="js/data/researches.js?v=2"></script>
+        <script src="js/data/prestige_upgrades.js?v=2"></script>
+        <script src="js/data/laws.js?v=2"></script>
+
+        <script src="js/elements/tabs.js?v=2"></script>
+        <script src="js/elements/dice.js?v=2"></script>
+        <script src="js/elements/dice/accept_drop.js?v=2"></script>
+        <script src="js/elements/dice/misc.js?v=2"></script>
+        <script src="js/elements/buildings.js?v=2"></script>
+        <script src="js/elements/researches.js?v=2"></script>
+        <script src="js/elements/prestige_upgrades.js?v=2"></script>
+        <script src="js/elements/laws.js?v=2"></script>
+
+        <script src="js/tech/dice_tooltip.js?v=2"></script>
+        <script src="js/tech/hotkeys.js?v=2"></script>
+        <script src="js/tech/events.js?v=2"></script>
+        <script src="js/tech/settings.js?v=2"></script>
+        <script src="js/tech/stats.js?v=2"></script>
+
+        <script src="js/game/misc.js?v=2"></script>
+        <script src="js/game/next_year.js?v=2"></script>
+        <script src="js/game/saveload.js?v=2"></script>
+
+        <script src="js/prestige/prestige.js?v=2"></script>
+        <script src="js/prestige/modified_functions.js?v=2"></script>
+
+        <script src="js/player.js?v=2"></script>
+        <script src="js/resource_production.js?v=2"></script>
+        <script src="js/conditionals.js?v=2"></script>
+
+        <script src="js/render/resource_cost.js?v=2"></script>
+
+        <script src="js/render.js?v=2"></script>
+        <script src="js/animation.js?v=2"></script>
+        <script src="js/onload.js?v=2"></script>
+
+        <link rel="stylesheet" href="css/index.css?v=2">
+        <link rel="stylesheet" href="css/citizen_classes.css?v=2">
+        <link rel="stylesheet" href="css/elements/header.css?v=2">
+        <link rel="stylesheet" href="css/elements/detection_meter.css?v=2">
+        <link rel="stylesheet" href="css/elements/navbar.css?v=2">
+        <link rel="stylesheet" href="css/elements/tab_contents.css?v=2">
+        <link rel="stylesheet" href="css/elements/footer.css?v=2">
+        <link rel="stylesheet" href="css/elements/dice_holder.css?v=2">
+        <link rel="stylesheet" href="css/elements/dice.css?v=2">
+        <link rel="stylesheet" href="css/elements/dice_tooltip.css?v=2">
+        <link rel="stylesheet" href="css/elements/win_screen.css?v=2">
+        <link rel="stylesheet" href="css/elements/render/resource_cost.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/village.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/research.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/laws.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/prestige.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/help.css?v=2">
+        <link rel="stylesheet" href="css/elements/tabs/settings.css?v=2">
+        <link rel="stylesheet" href="css/elements/tech/events.css?v=2">
+        <link rel="stylesheet" href="css/elements/game/saveload.css?v=2">
+        <link rel="stylesheet" href="css/themes/base.css?v=2">
+        <link rel="stylesheet" href="css/themes/dark.css?v=2">
+        <link rel="stylesheet" href="css/themes/monochrome.css?v=2">
+        <link rel="stylesheet" href="css/themes/random.css?v=2">
+
+        <meta property="og:title" content="Dark Forest Village"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://darkforestvillage.semenar.am"/>
+        <meta property="og:image" content="https://darkforestvillage.semenar.am/gfx/dark_forest_village.png"/>
+        <meta property="og:image:alt" content="A small village near a river in a forest being struck by a meteor. The stars in the night sky form the words 'Dark Forest'. The vord 'Village' is written on top in cursive font"/>
+        <meta property="og:description" content="A resource-management incremental about a village trying to defend from outsiders made by Semenar. Roll dice, assign them, progress and repeat. Can you colonize another star system? A SIGJ 2024 submission."/>
+        <meta property="og:locale" content="en_US"/>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="gfx/favicon_small.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="gfx/favicon.png">
+    </head>
+    <body>
+        <div id="app" class="app">
+            <div class="header">
+                <p class="current-year big-text"></p>
+            </div>
+            <div class="detection-meter detection">
+                <i class="fa-solid fa-satellite-dish"></i>
+                <div class="resource" data-resource="detection">
+                    <p class="amount"></p>
+                    <p class="decrease"></p>
+                    <p class="limit"></p>
+                </div>
+                <div class="progressbar">
+                    <div class="growth"></div>
+                    <div class="current"></div>
+                    <p class="invaders"></p>
+                </div>
+                <div class="first-strike button conditional" data-condition="first_strike_bought" data-conditional_class="no-display" onclick="game.game.first_strike()">
+                    <p>First Strike</p>
+                </div>
+            </div>
+            <div class="navbar">
+                <div class="detection-consequences detection">
+                    <div class="resource" data-resource="attack">
+                        <i class="fa-solid fa-hand-fist"></i>
+                        <p class="amount"></p>
+                        <p class="decrease"></p>
+                    </div>
+                    <p>vs</p>
+                    <div class="resource" data-resource="defense">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <p class="amount"></p>
+                        <p class="increase"></p>
+                    </div>
+                    <p class="prediction"></p>
+                </div>
+                <div class="tabs">
+                    <div class="tab" data-tab="village">
+                        <p>Village</p>
+                    </div>
+                    <div class="tab conditional" data-tab="research" data-condition="seen_science" data-conditional_class="hidden">
+                        <p>Research</p>
+                    </div>
+                    <div class="tab conditional" data-tab="laws" data-condition="seen_bureaucracy" data-conditional_class="hidden">
+                        <p>Laws</p>
+                    </div>
+                    <div class="tab conditional" data-tab="prestige" data-condition="unlocked_prestige" data-conditional_class="hidden">
+                        <p>Prestige</p>
+                    </div>
+                    <div class="tab" data-tab="help">
+                        <p>Help</p>
+                    </div>
+                    <div class="tab" data-tab="settings">
+                        <p>Settings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tabs-contents">
+                <div class="tab-contents village" data-tab="village">
+                    <div id="village_buildings" class="buildings-holder">
+                    </div>
+                </div>
+                <div class="tab-contents research" data-tab="research">
+                    <p class="desc">We can research the following technologies this turn:</p>
+                    <div class="research-cards"></div>
+                </div>
+                <div id="tab_laws" class="tab-contents laws" data-tab="laws">
+                    <div class="current-laws"></div>
+                </div>
+                <div class="tab-contents prestige" data-tab="prestige">
+                    <div class="hope-bar">
+                        <div class="resource" data-resource="hope">
+                            <i class="fa-solid fa-sun"></i>
+                            <p class="amount"></p>
+                            <p class="increase conditional" data-condition="has_religion_upgrade" data-conditional_class="no-display"></p>
+                        </div>
+                        <div class="button" onclick="game.player.prestige()">
+                            <p class="hope-gain">Reset now to gain <i class="fa-solid fa-sun"></i> <span class="hope-gain-amount bold"></span></p>
+                            <p class="hope-gain-hint"></p>
+                        </div>
+                    </div>
+                    <div class="upgrades">
+                        <div class="repeatable-upgrades-holder">
+                            <p class="category-name">Repeatable upgrades</p>
+                            <div class="repeatable-upgrades">
+                                <div class="upgrade" data-upgrade="r11"></div>
+                                <div class="upgrade" data-upgrade="r12"></div>
+                                <div class="upgrade" data-upgrade="r13"></div>
+                                <div class="upgrade" data-upgrade="r14"></div>
+                                <div class="upgrade" data-upgrade="r21"></div>
+                                <div class="upgrade" data-upgrade="r22"></div>
+                                <div class="upgrade" data-upgrade="r23"></div>
+                                <div class="upgrade" data-upgrade="r24"></div>
+                                <div class="upgrade" data-upgrade="r31"></div>
+                                <div class="upgrade" data-upgrade="r32"></div>
+                                <div class="upgrade" data-upgrade="r33"></div>
+                                <div class="upgrade" data-upgrade="r34"></div>
+                                <div class="upgrade" data-upgrade="r41"></div>
+                                <div class="upgrade" data-upgrade="r42"></div>
+                                <div class="upgrade" data-upgrade="r43"></div>
+                                <div class="upgrade" data-upgrade="r44"></div>
+                            </div>
+                        </div>
+                        <div class="other-upgrades">
+                            <div class="upgrade" data-upgrade="government"></div>
+                            <div class="upgrade" data-upgrade="stock_market"></div>
+                            <div class="upgrade" data-upgrade="integrated_defense_systems"></div>
+                            <div class="upgrade" data-upgrade="aggressive_isolationism"></div>
+                            <div class="upgrade" data-upgrade="self_sufficiency"></div>
+                            <div class="upgrade" data-upgrade="first_strike"></div>
+                            <div class="upgrade" data-upgrade="reroll_ones"></div>
+                            <div class="upgrade" data-upgrade="retraining"></div>
+                            <div class="upgrade" data-upgrade="workplace_shifts"></div>
+                            <div class="upgrade" data-upgrade="religion"></div>
+                            <div class="upgrade" data-upgrade="final_frontier"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-contents help" data-tab="help">
+                    <div class="help-tabs">
+                        <div class="help-tab" data-tab="basics"><p>Overview and Basics</p></div>
+                        <div class="help-tab" data-tab="classes"><p>Citizen Classes</p></div>
+                        <div class="help-tab" data-tab="buildings"><p>Village Jobs</p></div>
+                        <div class="help-tab conditional" data-tab="notice" data-condition="help_seen_detection" data-conditional_class="no-display"><p>Notice and Attacks</p></div>
+                        <div class="help-tab conditional" data-tab="research" data-condition="help_seen_science" data-conditional_class="no-display"><p>Research</p></div>
+                        <div class="help-tab conditional" data-tab="prestige" data-condition="unlocked_prestige" data-conditional_class="no-display"><p>Prestige</p></div>
+                        <div class="help-tab conditional" data-tab="laws" data-condition="help_seen_bureaucracy" data-conditional_class="no-display"><p>Laws</p></div>
+                    </div>
+                    <div class="help-tabs-contents">
+                        <div class="help-tab-contents" data-tab="basics">
+                            <p>
+                                In <span class="bold">Dark Forest Village</span>, you are tasked with developing a village that can withstand the test of time. 
+                                But the world is vast and full of terrors, so you might want to <span class="bold">evade</span> interaction with outsiders and keep it at a minimum.
+                                <br>
+                                <br>
+                                The game is played as a sequence of turns, called <span class="bold">years</span>. 
+                                Every year, your citizens, represented by 6-sided-dice, are rolled to determine which resources they will provide you with.
+                                You can keep them in the population pool, or <span class="bold">drag-and-drop</span> them into the village building slots to produce resources.
+                                <br>
+                                <span class="decrease">However, they won't produce resources displayed on them if they are busy in the village.</span>
+                                <br>
+                                <span class="increase">This might be a good thing, though, if some of those resources are detrimental for the settlement.</span>
+                                <br>
+                                <br>
+                                Every citizen requires an upkeep of <i class="fa-solid fa-wheat-awn"></i> <span class="bold">1</span> per year. 
+                                The <span class="class-peasant">Peasants</span> that you start with are perfectly capable of feeding themselves, but more advanced citizen classes will not be able to do so.
+                                You will still need to upgrade a part of your population to progress through the ages, but <span class="bold">be cautious</span>: failing to feed your population means a game over!
+                                <br>
+                                <br>
+                                Sometimes, you will be presented with <span class="bold">events</span> after starting a new year. Those events usually have several options to choose from.
+                                You will need to choose one of them before you can proceed.
+                            </p>
+                        </div>
+                        <div class="help-tab-contents" data-tab="classes">
+                            <p>
+                                <span class="class-peasant">Peasants</span> are the citizens you start with.
+                                They usually produce <i class="fa-solid fa-wheat-awn"></i>, enough to feed themselves and then some extra.
+                                Peasants are usually unable to perform most village jobs due to the lack of required dice symbols or class qualifications.
+                                However, they also usually don't generate any <i class="fa-solid fa-satellite-dish decrease"></i>.
+                            </p>
+                            <p class="conditional" data-condition="help_seen_class_laborer" data-conditional_class="no-display">
+                                <br>
+                                <span class="class-laborer">Laborers</span> are the main resource-producing force of your village.
+                                Freshly-minted laborers usually start with the sides full of <i class="fa-solid fa-hammer"></i> and can be specialized into the production of a resource by working in resource-producing jobs.
+                                They start with a <i class="fa-solid fa-satellite-dish decrease"></i> on the highest side, but it can be avoided by employing laborers with the highest side rolled in the production jobs.
+                            </p>
+                            <p class="conditional" data-condition="help_seen_class_scientist" data-conditional_class="no-display">
+                                <br>
+                                <span class="class-scientist">Scientists</span> are the ones producing <i class="fa-solid fa-flask"></i> and advancing your progress.
+                                It is usually a good idea to make Scientists out of fresh Laborers to maximize <i class="fa-solid fa-flask"></i> production provided by the conversion.
+                                Scientists can continue studying in Academia to gain more <i class="fa-solid fa-flask"></i> symbols at the cost of acquiring more <i class="fa-solid fa-satellite-dish decrease"></i>; there are several tecnologies making Scientists more effective at this.
+                            </p>
+                            <p class="conditional" data-condition="help_seen_class_soldier" data-conditional_class="no-display">
+                                <br>
+                                <span class="class-soldier">Soldiers</span> are the primary way of producing <i class="fa-solid fa-shield-halved"></i> passively.
+                                Soldiers are created via Military Training from any citizens; however, the training only converts some symbols into <i class="fa-solid fa-shield-halved"></i>, while part of the rest is lost.
+                                Therefore, it might be a good idea to try several times in order to get a good Soldier.
+                                Additionally to all that, Soldiers are also unique in that they can generate <i class="fa-solid fa-hand-fist decrease"></i>, which has potentially devastating consequences on future attacks if produced early.
+                            </p>
+                            <p class="conditional" data-condition="help_seen_class_specialist" data-conditional_class="no-display">
+                                <br>
+                                <span class="class-specialist">Specialists</span> are the ultimate workforce of the village.
+                                Specialists are necessary in order to perform many high-tech jobs from the electric powerplants onwards; in the other aspects they are almost indistinguishable from Laborers.
+                                However, Specialists require an additional upkeep of <i class="fa-solid fa-sack-dollar"></i> <span class="bold">1</span> per year.
+                            </p>
+                            <p class="conditional" data-condition="help_seen_class_priest" data-conditional_class="no-display">
+                                <br>
+                                <span class="class-priest">Priests</span> are the workers whose only job is to produce <i class="fa-solid fa-sun"></i>.
+                                They also get a <i class="fa-solid fa-satellite-dish decrease"></i> symbol on all their sides and lose all other positive symbols during their conversion.
+                            </p>
+                        </div>
+                        <div id="help_village_buildings" class="help-tab-contents" data-tab="buildings"></div>
+                        <div class="help-tab-contents" data-tab="notice">
+                            <p>
+                                If you are reading this, you have been noticed, and not in a good way.
+                                <br>
+                                <br>
+                                The world is dark and full of dangers. Many believe that might makes right, and would not hesitate to take advantage of the weaker ones by force, or preemptively eliminate the competition.
+                                Thus, you can see a <span class="bold">Notice meter</span> on top of your screen. It is filled up by producing <i class="fa-solid fa-satellite-dish decrease"></i> symbols. 
+                                When it fills up completely, an <span class="bold">attack</span> will happen; the strength of said attack is displayed below the meter on the left. If the attack is successful, it is game over!
+                                <br>
+                                <br>
+                                You have two options to deal with that threat. First, you can <span class="bold">evade notice</span>: make sure you are not producing any <i class="fa-solid fa-satellite-dish decrease"></i>.
+                                One way to do it is to ensure that every citizen that rolled a <i class="fa-solid fa-satellite-dish decrease"></i> symbol gets a job in the village itself; then, they cannot travel to other places and tell them of your riches, so no Notice will actually be produced.
+                                However, no other resources this citizen rolled will be produced either.
+                                <br>
+                                <br>
+                                Another option is to <span class="bold">build defences</span>: collect enough <i class="fa-solid fa-shield-halved"></i> to match or exceed the opponent's <i class="fa-solid fa-hand-fist"></i>. 
+                                When the notice meter fills up, the enemy attack will be deducted from your defense, but you will otherwise stay unharmed.
+                                Defeating your first attack also makes you eligible for <span class="bold">prestige</span>.
+                            </p>
+                        </div>
+                        <div class="help-tab-contents" data-tab="research">
+                            <p>
+                                Research is the main driver of progress, and you can perform it on the Research tab.
+                                <br>
+                                <br>
+                                Every year, your researches come mp with a selection of three technologies that you can possibly research. This selection is random and changs every year.
+                                To research a technology, you need enough <i class="fa-solid fa-flask"></i>. Typically, early technologies will only cost a few <i class="fa-solid fa-flask"></i>, but as you progress further, more expensive technologies will be added to the pool.
+                                <br>
+                                <br>
+                                Some technologies unlock new buildings; you will need to construct those buildings first to get the benefit.
+                                Other technologies might boost already existing buildings, unlock new features or simply be "gateway" technologies for other areas of advancement.
+                            </p>
+                        </div>
+                        <div class="help-tab-contents" data-tab="prestige">
+                            <p>
+                                When you could no longer go forward in time due to the lack of resources or the attack that is going to wipe you out, your only option is to <span class="bold">Prestige</span>.
+                                It is recommended to perform your first Prestige after the second attack; you can push for the third, if you want.
+                                <br>
+                                <br>
+                                Prestige resets you back at the start of year 1, but you get a new currency, <i class="fa-solid fa-sun"></i>, awarded based on your progression.
+                                The base <i class="fa-solid fa-sun"></i> gain is equal to square the number of attacks you successfully defeated plus the progress towards defeating the next attack; this gain and many other aspects of your settlement can be improved by spending <i class="fa-solid fa-sun"></i> on various upgrades.
+                                <i class="fa-solid fa-sun"></i> gain is always rounded down.
+                            </p>
+                        </div>
+                        <div class="help-tab-contents" data-tab="laws">
+                            <p>
+                                Having a political capital, expressed as <i class="fa-solid fa-landmark"></i>, allows you to change the structure of the government of your village, activating various bonuses based on a selected choice.
+                                <br>
+                                <br>
+                                To change a law, select a category first. Each category has a starting law with no effect, which you can always switch to for free, and three mutually exclusive alternatives.
+                                Selecting an alternative requires expending <i class="fa-solid fa-landmark"></i> based on the support for the specific change among the actual population, and ranges from <i class="fa-solid fa-landmark"></i> <span class="bold">1</span> at 90% support to <i class="fa-solid fa-landmark"></i> <span class="bold">25</span> at 10% support, with the cost changing exponentially in-between.
+                                Each option lists how each citizen class reacts to the law change: for each class, the description lists the minimal dice value needed for the citizen to support the law rather than to oppose it.
+                                <br>
+                                <br>
+                                When you change a law, all citizens will return to the population pool.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-contents settings" data-tab="settings">
+                    <div class="color-theme options-holder">
+                        <p>Color theme:</p>
+                        <div class="options-list">
+                            <div class="option" data-theme="base"><p>Default</p></div>
+                            <div class="option" data-theme="dark"><p>Dark</p></div>
+                            <div class="option" data-theme="monochrome"><p>Monochrome</p></div>
+                            <div class="option" data-theme="random"><p>Random</p></div>
+                        </div>
+                    </div>
+                    <div class="auto-next-year options-holder">
+                        <p>Auto-Next Year:</p>
+                        <div class="options-list">
+                            <div class="option" data-option="on"><p>On</p></div>
+                            <div class="option" data-option="off"><p>Off</p></div>
+                        </div>
+                    </div>
+                    <div class="button" onclick="game.game.import()">
+                        <span>Import Save</span>
+                    </div>
+                    <div class="button" onclick="game.game.export()">
+                        <span>Export Save</span>
+                    </div>
+                    <div class="button" onclick="game.game.reload_backup()">
+                        <span>Reload Start of Year</span>
+                    </div>
+                    <div class="button hard-reset" onclick="game.game.hard_reset()">
+                        <span>Hard Reset</span>
+                    </div>
+                    <div class="delimiter"></div>
+                    <p class="credits">Check more games from me on <a href="https://semenar.am" target="_blank">semenar.am</a>.</p>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="dice-tray" data-dice="36" data-location="population">
+                </div>
+                <div class="delimiter"></div>
+                <div id="new_turn" class="button" onclick="game.game.next_year()">
+                    <p class="title">Next Year</p>
+                    <p class="keybind">[Space]</p>
+                </div>
+            </div>
+            <div id="dice_tooltip" onmouseenter="game.tech.dice_tooltip_hover_on_tooltip()" onmouseleave="game.tech.dice_tooltip_end_hover()" class="dice-tooltip no-display"></div>
+            <div class="total-cover no-display"></div>
+            <div class="event-window no-display">
+                <p class="name"></p>
+                <div class="desc"></div>
+                <div class="options"></div>
+            </div>
+            <div class="import-window no-display">
+                <p class="instructions">Paste your save into the textbox below and click "Import":</p>
+                <textarea id="import_save" class="save"></textarea>
+                <div class="submit button" onclick="game.game.finish_import()">
+                    <p>Import</p>
+                </div>
+                <div class="exit button" onclick="game.game.abort_import()">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="export-window no-display">
+                <p class="instructions">Copy your save from the textbox below:</p>
+                <textarea id="export_save" class="save" readonly></textarea>
+                <div class="exit button" onclick="game.game.abort_export()">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="win-screen-holder no-display">
+                <div class="win-screen">
+                    <p class="congratulations">Congratulations!</p>
+                    <p>With the entirely new system colonized, your species have become interstellar. You have virtually guaranteed that the humanity will continue to exist in the future, no matter what challenges the cruel Universe and dangers lurking in its dark forest will throw at you. 
+                    For the first time in the history of your village, the future seems bright and full of success.</p>
+                    <div class="main-stats">
+                        <div class="main-stat">
+                            <p class="name">Total Prestige resets</p>
+                            <div class="main-stat-value-holder">
+                                <p class="stat" data-stat="prestiged"></p>
+                                <div class="stat-ranking" data-stat="prestiged">
+                                    <p class="stat-rank"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-stat">
+                            <p class="name">Years passed</p>
+                            <div class="main-stat-value-holder">
+                                <p class="stat" data-stat="years_passed"></p>
+                                <div class="stat-ranking" data-stat="years_passed">
+                                    <p class="stat-rank"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-table">
+                        <p class="name">Resets on Year 1</p>
+                        <p class="stat" data-stat="prestiged_year_1"></p>
+                        <p class="name">Total attacks defeated</p>
+                        <p class="stat" data-stat="attacks_defeated"></p>
+                        <p class="name">Total <i class='fa-solid fa-sun'></i> earned</p>
+                        <p class="stat" data-stat="hope_earned"></p>
+                    </div>
+                    <div class="delimiter"></div>
+                    <div class="button" onclick="game.game.close_win_screen()">
+                        <p>Continue playing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

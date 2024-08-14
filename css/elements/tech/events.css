@@ -1,0 +1,60 @@
+.total-cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-button-shadow);
+}
+
+.event-window {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    right: 10%;
+    bottom: 25%;
+    background-color: var(--color-bg);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em;
+}
+
+.event-window .name {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.event-window .desc {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    flex-grow: 1;
+    background-color: var(--color-bg-secondary);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5em;
+}
+
+.event-window .options {
+    display: grid;
+    grid-auto-rows: 1fr;
+    gap: 1em;
+}
+
+.event-window .options > * {
+    grid-column: 1;
+}
+
+.event-window .options .button {
+    padding: 0.5em;
+}
+
+.event-window .options .button * {
+    text-align: center;
+}
+
+.event-window .options .button .text {
+    font-size: 1.25em;
+    margin-bottom: 0.25em;
+}

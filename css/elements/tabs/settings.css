@@ -1,0 +1,74 @@
+.tab-contents.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    height: 100%;
+}
+
+.tab-contents.settings .button {
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+}
+
+.tab-contents.settings .button.hard-reset {
+    margin-top: 3em;
+    background-color: var(--color-text-bad);
+}
+
+.tab-contents.settings .button.hard-reset:hover {
+    background-color: var(--color-warning);
+}
+
+.tab-contents.settings .button.hard-reset > * {
+    color: var(--color-text-negative);
+}
+
+.tab-contents.settings .options-holder {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.tab-contents.settings .options-list {
+    display: flex;
+    flex-direction: row;
+    gap: 0.125em;
+}
+
+.tab-contents.settings .options-list .option {
+    background-color: var(--color-button-not-selected);
+    padding: 0.25em 0.5em;
+}
+
+.tab-contents.settings .options-list .option:not(.selected) {
+    box-shadow: 0 0.1em var(--color-button-shadow);
+}
+
+.tab-contents.settings .options-list .option:not(.selected):hover {
+    background-color: var(--color-button-hover);
+    cursor: pointer;
+}
+
+.tab-contents.settings .options-list .option.selected {
+    background-color: var(--color-bg-secondary);
+    font-weight: bold;
+}
+
+.tab-contents.settings .options-list .option:first-child {
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+.tab-contents.settings .options-list .option:last-child {
+    border-radius: 0 0.5em 0.5em 0;
+}
+
+.tab-contents.settings .credits {
+    font-size: 0.8em;
+    color: var(--color-text-gray);
+}
+
+.tab-contents.settings .credits a {
+    color: var(--color-text);
+}

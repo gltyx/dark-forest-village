@@ -1,0 +1,50 @@
+.import-window, .export-window {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    right: 10%;
+    bottom: 25%;
+    background-color: var(--color-bg);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em;
+}
+
+.import-window .instructions, .export-window .instructions {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.import-window .exit, .export-window .exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2em;
+    height: 1em;
+    width: 1em;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.import-window .save, .export-window .save {
+    flex-grow: 1;
+    align-self: stretch;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    resize: none;
+    background-color: var(--color-bg-secondary);
+}
+
+.import-window .submit, .export-window .submit {
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    align-self: center;
+}
+
+.import-window .submit > *, .export-window .submit > * {
+    font-size: 2em;
+}

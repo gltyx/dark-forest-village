@@ -1,0 +1,35 @@
+.dice-tooltip {
+    position: absolute;
+    border-radius: 1em;
+    padding: 1em;
+    display: grid;
+    grid-template-rows: calc(var(--dice-size) * 0.6) calc(var(--dice-size) * 0.4) calc(var(--dice-size) * 1.25);
+    grid-template-columns: calc(var(--dice-size) * 2.7) repeat(6, calc(var(--dice-size) * 1.25));
+    gap: calc(var(--dice-size) * 0.125);
+    border: 0.1em solid var(--color-borders);
+    background-color: var(--color-bg-secondary);
+}
+
+.dice-tooltip .dice-holder {
+    grid-row: 3;
+}
+
+.dice-tooltip .dice-holder.big {
+    grid-row: 1 / 4;
+    grid-column: 1;
+}
+
+.dice-tooltip .die {
+    cursor: auto;
+}
+
+.dice-tooltip > p {
+    grid-column: 2 / 8;
+    text-align: center;
+    align-self: center;
+}
+
+.dice-tooltip .class-name {
+    font-size: 1.5em;
+    text-shadow: 0.06em 0.06em var(--color-button-shadow);
+}

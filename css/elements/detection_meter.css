@@ -1,0 +1,74 @@
+.detection-meter {
+    display: flex;
+    padding: 1em 0.5em;
+    gap: 1em;
+    align-items: center;
+}
+
+.detection-meter > i {
+    font-size: 1.5em;
+}
+
+.detection-meter .resource {
+    display: flex;
+    align-items: baseline;
+}
+
+.detection-meter .amount {
+    font-size: 2em;
+}
+
+.detection-meter .decrease {
+    align-self: flex-start;
+}
+
+.detection-meter .limit {
+    font-size: 2em;
+}
+
+.detection-meter .progressbar {
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    height: 1.5em;
+    border-radius: 0.75em;
+    background-color: var(--color-detection-progressbar);
+}
+
+.detection-meter .progressbar .current {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: calc(100% * (var(--detection-max) - var(--detection-current)) / var(--detection-max));
+    background-color: var(--color-detection-current);
+}
+
+.detection-meter .progressbar .growth {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: calc(100% * (var(--detection-max) - var(--detection-current) - var(--detection-growth)) / var(--detection-max));
+    background-color: var(--color-detection-growth);
+}
+
+.detection-meter .progressbar .invaders {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.2em;
+    color: var(--color-text-negative);
+    text-align: center;
+}
+
+.detection-meter .first-strike {
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+}
+
+.detection-meter .first-strike > * {
+    font-size: 1.25em;
+}

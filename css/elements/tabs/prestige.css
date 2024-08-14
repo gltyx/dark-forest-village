@@ -1,0 +1,182 @@
+.tab-contents.prestige .hope-bar {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: 4em;
+}
+
+.tab-contents.prestige .hope-bar .resource {
+    display: flex;
+    gap: 0.25em;
+    font-size: 2em;
+    align-self: center;
+    justify-self: center;
+    align-items: baseline;
+}
+
+.tab-contents.prestige .hope-bar .resource .increase {
+    font-size: 0.5em;
+    align-self: flex-start;
+}
+
+.tab-contents.prestige .hope-bar .button {
+    border-radius: 0.5em;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.tab-contents.prestige .hope-bar .button > * {
+    text-align: center;
+}
+
+.tab-contents.prestige .hope-bar .hope-gain {
+    font-size: 1.25em;
+}
+
+.tab-contents.prestige .hope-bar .hope-gain-hint {
+    font-size: 0.8em;
+    color: var(--color-text-gray);
+}
+
+.tab-contents.prestige .upgrades {
+    display: grid;
+    grid-template-columns: calc(var(--repeatable-upgrade-width) * 4 + 2.5em) auto;
+    gap: 1em;
+    padding-top: 1em;
+}
+
+.tab-contents.prestige .repeatable-upgrades-holder {
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: var(--color-bg-gray);
+    align-self: flex-start;
+}
+
+.tab-contents.prestige .repeatable-upgrades-holder .category-name {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.tab-contents.prestige .repeatable-upgrades-holder .repeatable-upgrades {
+    margin-top: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(4, var(--repeatable-upgrade-width));
+    grid-template-rows: repeat(4, calc(0.9 * var(--repeatable-upgrade-width)));
+    gap: 0.5em;
+}
+
+.tab-contents.prestige .other-upgrades {
+    display: grid;
+    gap: 0.5em;
+    grid-auto-rows: 6.5em;
+}
+
+.tab-contents.prestige .other-upgrades > * {
+    grid-column: 1;
+}
+
+/* Upgrades */
+.tab-contents.prestige .upgrade {
+    background-color: var(--color-upgrade-not-selected);
+    border-radius: 0.5em;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: auto 1.5em;
+
+    box-shadow: 0.15em 0.15em var(--color-button-shadow);
+    position: relative;
+}
+
+.tab-contents.prestige .upgrade .toggle {
+    position: absolute;
+    right: 0.25em;
+    bottom: 0.25em;
+
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: 0.15em;
+}
+
+.tab-contents.prestige .upgrade .toggle > * {
+    grid-row: 1;
+}
+
+.tab-contents.prestige .upgrade .toggle .option {
+    background-color: var(--color-tab-not-selected);
+    text-align: center;
+    padding: 0.2em 0.5em;
+    font-weight: bold;
+}
+
+.tab-contents.prestige .upgrade .toggle .option.selected {
+    background-color: var(--color-upgrade-complete);
+}
+
+.tab-contents.prestige .upgrade .toggle .option:not(.selected) {
+    box-shadow: 0 0.1em var(--color-button-shadow);
+}
+
+.tab-contents.prestige .upgrade .toggle .option:not(.selected):hover {
+    background-color: var(--color-button-hover);
+    cursor: pointer;
+}
+
+.tab-contents.prestige .upgrade .toggle .option:first-child {
+    border-radius: 0.5em 0 0 0.5em;
+}
+
+.tab-contents.prestige .upgrade .toggle .option:last-child {
+    border-radius: 0 0.5em 0.5em 0;
+}
+
+.tab-contents.prestige .upgrade.complete {
+    background-color: var(--color-upgrade-complete);
+}
+
+.tab-contents.prestige .upgrade.disabled {
+    background-color: var(--color-button-disabled);
+}
+
+.tab-contents.prestige .upgrade:not(.disabled):not(.complete):hover {
+    background-color: var(--color-button-hover);
+    cursor: pointer
+}
+
+.tab-contents.prestige .upgrade.complete .next, .tab-contents.prestige .upgrade.complete .cost-holder {
+    display: none;
+}
+
+.tab-contents.prestige .upgrade:not(.complete) .toggle {
+    display: none;
+}
+
+.tab-contents.prestige .upgrade .name {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.tab-contents.prestige .upgrade .cost-holder {
+    background-color: var(--color-reverse-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-contents.prestige .upgrade .desc-holder {
+    padding: 0.25em;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-contents.prestige .upgrade .desc-holder > * {
+    text-align: center;
+}
+
+.tab-contents.prestige .upgrade .desc-holder .desc {
+    font-size: 0.8em;
+    flex-grow: 1;
+}

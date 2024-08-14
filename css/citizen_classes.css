@@ -1,0 +1,32 @@
+div.class-peasant { background-color: var(--color-class-peasant) }
+div.class-laborer { background-color: var(--color-class-laborer) }
+div.class-scientist { background-color: var(--color-class-scientist) }
+div.class-soldier { background-color: var(--color-class-soldier) }
+div.class-specialist { background-color: var(--color-class-specialist) }
+div.class-priest { background-color: var(--color-class-priest) }
+
+
+p.class-peasant, span.class-peasant {
+    font-weight: bold;
+    color: var(--color-class-peasant);
+}
+p.class-laborer, span.class-laborer {
+    font-weight: bold;
+    color: var(--color-class-laborer);
+}
+p.class-scientist, span.class-scientist {
+    font-weight: bold;
+    color: var(--color-class-scientist);
+}
+p.class-soldier, span.class-soldier {
+    font-weight: bold;
+    color: var(--color-class-soldier);
+}
+p.class-specialist, span.class-specialist {
+    font-weight: bold;
+    color: var(--color-class-specialist);
+}
+p.class-priest, span.class-priest {
+    font-weight: bold;
+    color: var(--color-class-priest);
+}

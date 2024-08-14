@@ -1,0 +1,12 @@
+.tabs-contents {
+    flex-grow: 1;
+    background-color: var(--color-bg-secondary);
+    border-radius: 1em 0 1em 1em;
+    padding: 1em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabs-contents .tab-contents:not(.selected) {
+    display: none;
+}

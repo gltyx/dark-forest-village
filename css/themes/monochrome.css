@@ -1,0 +1,38 @@
+.app.theme-monochrome {
+    --color-bg: #EEEEEE;
+    --color-bg-secondary: #FFFFFF;
+    --color-text: #010101;
+    --color-text-negative: #FEFEFE;
+    --color-text-gray: #333333;
+    --color-text-good: #010101;
+    --color-text-bad: #010101;
+    --color-warning: #303030;
+    --color-detection-progressbar: #A0A0A0;
+    --color-detection-current: #000000;
+    --color-detection-growth: #303030;
+    --color-tab-hover: #D8D8D8;
+    --color-tab-not-selected: #C0C0C0;
+    --color-borders: #010101;
+    --color-dice-holder-empty: #C8C8C8;
+    --color-dice-holder-locked: #909090;
+    --color-button-hover: #D8D8D8;
+    --color-button-not-selected: #C0C0C0;
+    --color-button-disabled: #909090;
+    --color-button-shadow: #00000080;
+    --color-reverse-shadow: #FFFFFF80;
+    --color-bg-dark: #CCCCCC;
+    --color-bg-gray: #DDDDDD;
+    --color-progressbar: #FFFFFF;
+    --color-progressbar-current: #808080;
+    --color-progressbar-growth: #999999;
+    --color-scientist-bright: #EEEEEE;
+    --color-upgrade-not-selected: #BBBBBB;
+    --color-upgrade-complete: #EEEEEE;
+
+    --color-class-peasant: #A0A0A0;
+    --color-class-laborer: #808080;
+    --color-class-scientist: #BCBCBC;
+    --color-class-soldier: #696969;
+    --color-class-specialist: #909090;
+    --color-class-priest: #B0B0B0;
+}

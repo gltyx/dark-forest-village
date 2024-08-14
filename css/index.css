@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    user-select: none;
+}
+
+p, span {
+    font-family: "Lora", serif;
+    color: var(--color-text);
+}
+
+i {
+    color: var(--color-text);
+}
+
+body {
+    height: 100vh;
+    /* height: 900px;
+    width: 1080px; */
+    position: relative;
+
+    font-size: calc(min(16 / 900 * 100vh, 16 / 1080 * 100vw));
+}
+
+.app {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-bg);
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.big-text {
+    font-size: 2em;
+}
+
+.increase, .increase * {
+    color: var(--color-text-good);
+}
+
+.decrease, .decrease * {
+    color: var(--color-text-bad);
+}
+
+.warning {
+    background: linear-gradient(var(--color-warning), transparent);
+}
+
+.app:not(.detected) .detection {
+    visibility: hidden;
+}
+
+.button {
+    background-color: var(--color-button-not-selected);
+    box-shadow: 0.25em 0.25em var(--color-button-shadow);
+}
+
+.button:not(.disabled):hover {
+    cursor: pointer;
+    background-color: var(--color-button-hover);
+}
+
+.button.disabled {
+    background-color: var(--color-button-disabled);
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+.no-display {
+    display: none !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.sup {
+    font-size: 0.6em;
+    position: relative;
+    top: -0.5em;
+}
+
+.comment {
+    font-size: 0.8em;
+    color: var(--color-text-gray);
+}
+
+.delimiter {
+    flex-grow: 1;
+}
